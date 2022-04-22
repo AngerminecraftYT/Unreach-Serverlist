@@ -1,7 +1,12 @@
-/*!
-* Start Bootstrap - One Page Wonder v6.0.5 (https://startbootstrap.com/theme/one-page-wonder)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-one-page-wonder/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+function serverListener1() {
+  var data = JSON.parse(this.responseText);
+  console.log(data);
+  document.getElementById('server-1-motd').innerHTML = data.motd.html
+  document.getElementById('server-1-online').innerHTML = data.players.online
+  document.getElementById('server-1-max').innerHTML = data.players.max
+}
+var request = new XMLHttpRequest();
+request.onload = serverListener1;
+request.onerror = requestError;
+request.open('get', 'https://adminpanel.cyclenet.eu/api/ping?ip=unreachpvp.servers.unreach.host&port=25565', true);
+request.send();
