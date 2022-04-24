@@ -19,7 +19,7 @@ function requestError(){
 var request = new XMLHttpRequest();
 request.onload = requestListener;
 request.onerror = requestError;
-request.open('get', 'https://api.mcsrvstat.us/2/UHParksGT.servers.unreach.host', true);
+request.open('get', 'https://api.mcsrvstat.us/2/UHHubGT.servers.unreach.host', true);
 request.send();
 function requestListener() {
   var data = JSON.parse(this.responseText);
